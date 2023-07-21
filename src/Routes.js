@@ -1,10 +1,9 @@
 import React from "react";
-import { useRouteMatch } from "react-router-dom";
-import { Switch, BrowserRouter, ContentRoute } from "react-router-dom";
-import {} from "react-browser-router";
+import { BrowserRouter, Redirect, Switch } from "react-router-dom";
+import ContentRoute from "./ContentRoute";
+import Content1 from "./components/contents/Content1";
 
 function Routes() {
-    
   return (
     <>
       <BrowserRouter>
@@ -12,30 +11,14 @@ function Routes() {
           <ContentRoute
             exact
             path="/home"
-            component={() => {
-              return <MuhatapView key={"tahsilat"} />;
-            }
+            component={Content1}
+            yetkiVarMi={true}
             breadcrumbs={[
               {
-                title: "Content",
-                path: "/content",
+                title: "Anasayfa",
+                path: "/anasayfa",
                 detay: false,
-              },
-              {
-                title: "Menu",
-                path: "/menu",
-                detay: false,
-              },
-              {
-                title: "Option1",
-                path: "/menu/option1",
-                detay: false,
-              },
-              {
-                title: "Option2",
-                path: "/menu/option2",
-                detay: false,
-              },
+              }
             ]}
           />
         </Switch>

@@ -1,6 +1,8 @@
+import { Box, Grid } from "@mui/material";
+import React from "react";
 import "./App.css";
-import { Grid, Box } from "@mui/material";
-import Content from "./components/Content/Content";
+//import { makeStyles } from "@mui/styles";
+import Main from "./components/Main/Main";
 import Menu from "./components/Sidebar/Menu";
 
 function App() {
@@ -11,8 +13,18 @@ function App() {
     width: "85rem",
     height: "40rem",
   };
-
-
+  const notistackRef = React.createRef();
+  const onClickDismiss = (key) => () => {
+    notistackRef.current.closeSnackbar(key);
+  };
+  /*
+  const snackbarStyles = makeStyles((theme) => ({
+    root: { maxWidth: 350 },
+    action: { pointerEvents: "all" },
+  }));
+  
+  const snackbarClasses = snackbarStyles();
+*/
   return (
     <>
       <Box sx={{ ...commonStyles, borderColor: "primary.main" }}>
@@ -20,10 +32,9 @@ function App() {
           <Grid item xs={2} md={2}>
             <Menu></Menu>
           </Grid>
-          
-            <Grid item xs={4} md={10}>
-              <Content></Content>
-            </Grid>
+          <Grid item xs={4} md={10}>
+            <Main></Main>
+          </Grid>
         </Grid>
       </Box>
     </>
@@ -31,3 +42,51 @@ function App() {
 }
 
 export default App;
+
+/*
+</SnackbarProvider>
+     <SnackbarProvider maxSnack={10}>
+      <Option1></Option1>
+    <Option2></Option2>
+
+  </SnackbarProvider>
+
+<SnackbarProvider maxSnack={10}>
+    <Options/>
+
+  </SnackbarProvider>
+
+
+    <SnackbarProvider
+      ref={notistackRef}
+      action={(key) => (
+        <IconButton onClick={onClickDismiss(key)}>
+          <CloseIcon />
+        </IconButton>
+      )}
+      anchorOrigin={{
+        vertical: "top",
+        horizontal: "right",
+      }}
+      
+      classes={{
+        root: snackbarClasses.root,
+        action: snackbarClasses.action,
+      }}>
+      
+      <>
+        <>
+          <Box sx={{ ...commonStyles, borderColor: "primary.main" }}>
+            <Grid container rowSpacing={2} columnSpacing={2} columns={16}>
+              <Grid item xs={2} md={2}>
+                <Menu></Menu>
+              </Grid>
+
+              <Grid item xs={4} md={10}>
+                <Main></Main>
+              </Grid>
+            </Grid>
+          </Box>
+        </>
+      </>
+    </SnackbarProvider> */

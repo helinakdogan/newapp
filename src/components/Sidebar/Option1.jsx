@@ -1,15 +1,12 @@
-import { Button } from '@mui/material'
-import React from 'react'
+import * as React from 'react';
 
 const Option1 = () => {
 
-  const handleButton = () => {
-
-  }
-
   return (
-    <div><Button onClick={handleButton}>option1</Button></div>
-  )
+   <>Option 1</>
+  );
 }
 
-export default Option1
+
+
+export default Option1;
