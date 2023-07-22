@@ -1,9 +1,13 @@
+import { Box, Button, Grid } from "@mui/material";
 import React from "react";
-import Menu1 from "./Option1";
-import Menu2 from "./Option2";
-import { Grid , Box} from "@mui/material";
+import Option2 from "./Option2";
+//import {  } from 'react-router';
+import { useHistory, useNavigate } from "react-router-dom";
 
-function Menu() {
+function Menu(props) {
+
+  const history=useHistory();
+  //let navigate = useNavigate();
 
   const commonStyles = {
     bgcolor: 'background.paper',
@@ -21,10 +25,15 @@ function Menu() {
         <div>MENU</div>
         </Grid>
         <Grid item xs={12}>
-        <Menu1></Menu1>
+        <Button onClick={()=>{
+          console.log("history",props.history);
+          //navigate.push("/content1")
+          history.push("/content1")
+          //window.location = "/content1"
+        }}>Menü1</Button>
         </Grid>
         <Grid item xs={12}>
-        <Menu2></Menu2>
+        <Option2></Option2>
         </Grid>
       </Grid>
       </Box>

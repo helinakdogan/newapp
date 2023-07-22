@@ -4,11 +4,14 @@ import { styled } from '@mui/system';
 import CheckRoundedIcon from '@mui/icons-material/CheckRounded';
 import CloseIcon from '@mui/icons-material/Close';
 import Snackbar from '@mui/base/Snackbar';
+import Routes from '../../Routes';
+import { useHistory } from 'react-router-dom';
 
 const Option2 = () => {
   const [open, setOpen] = React.useState(false);
   const [exited, setExited] = React.useState(true);
   const nodeRef = React.useRef(null);
+  //const history = useHistory();
 
   const handleClose = (_, reason) => {
     if (reason === 'clickaway') {
@@ -20,6 +23,7 @@ const Option2 = () => {
 
   const handleClick = () => {
     setOpen(true);
+    //history.push('/content2');
   };
 
   const handleOnEnter = () => {
@@ -133,8 +137,10 @@ const Option2 = () => {
 
   return (
     <React.Fragment>
+
+      <Routes></Routes>
       <TriggerButton type="button" onClick={handleClick}>
-        Open snackbar
+        Open content 2
       </TriggerButton>
       <StyledSnackbar
         autoHideDuration={5000}

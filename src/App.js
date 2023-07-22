@@ -4,6 +4,7 @@ import "./App.css";
 //import { makeStyles } from "@mui/styles";
 import Main from "./components/Main/Main";
 import Menu from "./components/Sidebar/Menu";
+import Tahta from "./components/Tahta";
 
 function App() {
   const commonStyles = {
@@ -27,7 +28,7 @@ function App() {
 */
   return (
     <>
-      <Box sx={{ ...commonStyles, borderColor: "primary.main" }}>
+      {/* <Box sx={{ ...commonStyles, borderColor: "primary.main" }}>
         <Grid container rowSpacing={2} columnSpacing={2} columns={16}>
           <Grid item xs={2} md={2}>
             <Menu></Menu>
@@ -36,7 +37,8 @@ function App() {
             <Main></Main>
           </Grid>
         </Grid>
-      </Box>
+      </Box> */}
+      <Tahta />
     </>
   );
 }

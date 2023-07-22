@@ -1,4 +1,5 @@
-import React from 'react';
+import React from 'react'
+import { Grid, Box } from "@mui/material";
 import Routes from "./../../Routes";
 const Main = () => {
 

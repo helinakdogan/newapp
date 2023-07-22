@@ -1,4 +1,5 @@
 import React from 'react'
+import {withRouter} from "react-router-dom";
 
 function Content1() {
   return (
@@ -6,4 +7,4 @@ function Content1() {
   )
 }
 
-export default Content1
+export default withRouter(Content1);
