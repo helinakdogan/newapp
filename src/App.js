@@ -38,7 +38,7 @@ function App() {
           </Grid>
         </Grid>
       </Box> */}
-      <Tahta />
+      <Tahta/>
     </>
   );
 }
