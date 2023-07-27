@@ -1,94 +1,34 @@
-import { Box, Grid } from "@mui/material";
-import React from "react";
-import "./App.css";
-//import { makeStyles } from "@mui/styles";
-import Main from "./components/Main/Main";
-import Menu from "./components/Sidebar/Menu";
-import Tahta from "./components/Tahta";
+import React, { useState } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Button } from "@mui/material";
+import ProjeDataTable from "./components/tanim/proje/ProjeDataTable";
+import ProjeDataForm from "./components/tanim/proje/ProjeDataForm";
 
-function App() {
-  const commonStyles = {
-    bgcolor: "background.paper",
-    m: 1,
-    border: 1,
-    width: "85rem",
-    height: "40rem",
+const App = (props) => {
+  const [isEdited, setIsEdited] = useState(false);
+
+  const handleButton = () => {
+    setIsEdited(true);
   };
-  const notistackRef = React.createRef();
-  const onClickDismiss = (key) => () => {
-    notistackRef.current.closeSnackbar(key);
-  };
-  /*
-  const snackbarStyles = makeStyles((theme) => ({
-    root: { maxWidth: 350 },
-    action: { pointerEvents: "all" },
-  }));
-  
-  const snackbarClasses = snackbarStyles();
-*/
+
   return (
     <>
-      {/* <Box sx={{ ...commonStyles, borderColor: "primary.main" }}>
-        <Grid container rowSpacing={2} columnSpacing={2} columns={16}>
-          <Grid item xs={2} md={2}>
-            <Menu></Menu>
-          </Grid>
-          <Grid item xs={4} md={10}>
-            <Main></Main>
-          </Grid>
-        </Grid>
-      </Box> */}
-      <Tahta/>
+      <Router>
+        {!isEdited && <Button onClick={handleButton}>EKLE</Button>}
+
+        <Routes>
+          <Route
+            path="/"
+            element={isEdited ? <ProjeDataTable /> : <ProjeDataForm />}
+          />
+        </Routes>
+      </Router>
     </>
   );
-}
+};
 
 export default App;
 
 /*
-</SnackbarProvider>
-     <SnackbarProvider maxSnack={10}>
-      <Option1></Option1>
-    <Option2></Option2>
-
-  </SnackbarProvider>
-
-<SnackbarProvider maxSnack={10}>
-    <Options/>
-
-  </SnackbarProvider>
-
-
-    <SnackbarProvider
-      ref={notistackRef}
-      action={(key) => (
-        <IconButton onClick={onClickDismiss(key)}>
-          <CloseIcon />
-        </IconButton>
-      )}
-      anchorOrigin={{
-        vertical: "top",
-        horizontal: "right",
-      }}
-      
-      classes={{
-        root: snackbarClasses.root,
-        action: snackbarClasses.action,
-      }}>
-      
-      <>
-        <>
-          <Box sx={{ ...commonStyles, borderColor: "primary.main" }}>
-            <Grid container rowSpacing={2} columnSpacing={2} columns={16}>
-              <Grid item xs={2} md={2}>
-                <Menu></Menu>
-              </Grid>
-
-              <Grid item xs={4} md={10}>
-                <Main></Main>
-              </Grid>
-            </Grid>
-          </Box>
-        </>
-      </>
-    </SnackbarProvider> */
+	<Button onClick={handleClick}>EKLE</Button>
+      {isEdited ? <ProjeDataTable /> : <ProjeDataForm />} */
